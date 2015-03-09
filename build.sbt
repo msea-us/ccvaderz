@@ -9,15 +9,18 @@ lazy val root = project.in(file(".")).
 
 lazy val vaderz = crossProject.in(file(".")).
   settings(
-    name := "ccvaders",
     version := "0.1-SNAPSHOT",
     scalaVersion := "2.11.5"
   ).
-jsSettings(
-    name := "ccvadersJS"
+jsSettings(    
+    name := "ccvaderzjs",
+    persistLauncher in Compile := true,
+    libraryDependencies ++= Seq(
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
+    )
   ).
 jvmSettings(
-    name := "ccvadersJVM"
+    name := "ccvaderzjvm"
   )
 
 lazy val vaderzJS = vaderz.js
