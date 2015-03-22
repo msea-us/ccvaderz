@@ -9,7 +9,7 @@ class JSCanvas(handler : Processing)  extends Canvas {
   val canvas = dom.document.getElementById("canvas").asInstanceOf[html.Canvas]
   val ctx = canvas.getContext("2d").asInstanceOf[dom.CanvasRenderingContext2D]
   
-  var _frameRate = 0
+  var _frameRate = 0f
   
   def init() = {
     handler.setCanvas(this)
@@ -17,7 +17,7 @@ class JSCanvas(handler : Processing)  extends Canvas {
     dom.setInterval(() => handler.draw, 1000 / _frameRate)
   }
   
-  def frameRate(r:Int) = {
+  def frameRate(r:Float) = {
     _frameRate = r
   }
   

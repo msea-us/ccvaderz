@@ -2,7 +2,7 @@ package us.msea.vaderz.shared.framework
 
 trait Canvas {
   
-  def frameRate( r : Int)
+  def frameRate( r : Float)
   
   def size(w : Int, h : Int) 
   
