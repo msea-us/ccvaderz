@@ -3,8 +3,13 @@ package us.msea.vaderz.shared.framework
 trait Processing {
   
   var _width : Int = 0
+  def setWidth(w:Int) = {
+    _width = w
+  }
   var _height : Int = 0
-  var _frameRate : Int = 0
+  def setHeight(h:Int) = {
+    _height = h
+  }
   var _rgb : Int = 0
   
   var _canvas : Canvas = null
@@ -17,8 +22,12 @@ trait Processing {
   
   def draw()
   
+  def size(w : Int, h : Int) = {
+    _canvas.size(w,h)
+  }
+  
   def frameRate( rate : Int) = {
-    _frameRate = rate
+    _canvas.frameRate( rate )
   }
   
   def stroke(rgb : Int) = {
@@ -30,12 +39,12 @@ trait Processing {
     _canvas.rect(a, b, c, d)
   }
   
-  def init() = {
-    setup()
-    while(true) {
-      draw()
-      Thread.sleep( 1000 / _frameRate)
-    }
-  }
+//  def init() = {
+//    setup()
+//    _canvas.setInterval(draw, 1000 / _frameRate)
+//    //while(true) {   
+//       //Thread.sleep( 1000 / _frameRate)
+//    //}
+//  }
 
 }
