@@ -3,13 +3,15 @@ package us.msea.vaderz.jvm
 import processing.core._
 import us.msea.vaderz.shared.framework._
 
-class JvmCanvas(handler : Processing) extends PApplet with Canvas {
+class JvmCanvas(handler : ProcessingApiAdapter) extends PApplet with Canvas {
+  
+  //TODO get width and height from jvm runtime environment; -Dwidth=...
+  val w = 800
+  val h = 600
   
   override def init() = {
     val jFrame = new javax.swing.JFrame()
     
-    val w = handler._width
-    val h = handler._height
     jFrame.setSize(w,h)
     jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE)
     val panel  = new javax.swing.JPanel()
@@ -26,8 +28,8 @@ class JvmCanvas(handler : Processing) extends PApplet with Canvas {
   }
   
   override def setup() = {
-     handler.setup()
-     size(handler._width, handler._height)
+   handler.setup()
+   size(w, h)
   }
   
   override def draw() = {

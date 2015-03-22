@@ -1,12 +1,8 @@
 package us.msea.vaderz.shared
 
-import us.msea.vaderz.shared.framework.Processing
+import us.msea.vaderz.shared.framework.ProcessingApiAdapter
 
-class Game extends Processing {
-  
-  //these must be set in the constructor to support jvm jFrame
-  setWidth(800)
-  setHeight(600)
+class Game extends ProcessingApiAdapter {
   
   override def setup() = {
     frameRate(10)

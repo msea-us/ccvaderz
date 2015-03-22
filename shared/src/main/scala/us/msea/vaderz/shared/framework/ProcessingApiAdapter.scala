@@ -1,22 +1,23 @@
 package us.msea.vaderz.shared.framework
 
-trait Processing {
+trait ProcessingApiAdapter extends Canvas {
+  
+  var _canvas : Canvas = null
+  def setCanvas(canvas : Canvas) = {
+    _canvas = canvas
+  }
   
   var _width : Int = 0
   def setWidth(w:Int) = {
     _width = w
   }
+  
   var _height : Int = 0
   def setHeight(h:Int) = {
     _height = h
   }
+  
   var _rgb : Int = 0
-  
-  var _canvas : Canvas = null
-  
-  def setCanvas(canvas : Canvas) = {
-    _canvas = canvas
-  }
   
   def setup()
   
@@ -26,7 +27,7 @@ trait Processing {
     _canvas.size(w,h)
   }
   
-  def frameRate( rate : Int) = {
+  def frameRate( rate : Float) = {
     _canvas.frameRate( rate )
   }
   
@@ -39,12 +40,4 @@ trait Processing {
     _canvas.rect(a, b, c, d)
   }
   
-//  def init() = {
-//    setup()
-//    _canvas.setInterval(draw, 1000 / _frameRate)
-//    //while(true) {   
-//       //Thread.sleep( 1000 / _frameRate)
-//    //}
-//  }
-
 }
