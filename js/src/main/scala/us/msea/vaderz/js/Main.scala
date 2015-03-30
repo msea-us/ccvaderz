@@ -1,4 +1,4 @@
-package us.msea.vaders.js
+package us.msea.vaderz.js
 
 import scala.scalajs.js
 import js.annotation.JSExport

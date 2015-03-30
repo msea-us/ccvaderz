@@ -2,6 +2,7 @@ package us.msea.vaderz.jvm
 
 import processing.core._
 import us.msea.vaderz.shared.framework._
+import java.awt.event.KeyEvent._
 
 class JvmCanvas(handler : ProcessingApiAdapter) extends PApplet with Canvas {
   
@@ -25,6 +26,8 @@ class JvmCanvas(handler : ProcessingApiAdapter) extends PApplet with Canvas {
     
     jFrame.setVisible(true)
     this.size(w, h)
+    handler.setWidth(w)
+    handler.setHeight(h)
   }
   
   override def setup() = {
@@ -35,6 +38,20 @@ class JvmCanvas(handler : ProcessingApiAdapter) extends PApplet with Canvas {
   override def draw() = {
     handler.draw()
   }
+  
+  override def keyPressed() = {
+    handler.keyPressed(keyCode)
+  }
+  
+  override def keyReleased() = {
+    handler.keyReleased(keyCode)
+  }
+  
+  def text(txt : String, x : Int, y : Int) = {}
+  
+  def KEY_LEFT = VK_LEFT
+  
+  def KEY_RIGHT = VK_RIGHT
   
 }  
 

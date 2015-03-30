@@ -19,6 +19,16 @@ trait ProcessingApiAdapter extends Canvas {
   
   var _rgb : Int = 0
   
+  def background(rgb : Int) = {
+    _canvas.background(rgb)
+  }
+  
+  var _textSize = 0
+  def textSize(size : Int) = {
+    _textSize = size
+    _canvas.textSize(size)
+  }
+  
   def setup()
   
   def draw()
@@ -39,5 +49,19 @@ trait ProcessingApiAdapter extends Canvas {
   def rect(a : Float, b : Float, c: Float, d: Float) = {
     _canvas.rect(a, b, c, d)
   }
+  
+  def text(txt : String, x : Float, y : Float) = {
+    _canvas.text(txt, x, y)
+  }
+  
+  def textSize( size : Float) = _canvas.textSize(size)
+  
+  def keyPressed(keyCode : Int) = {}
+  
+  def keyReleased(keyCode : Int) = {}
+  
+  def KEY_LEFT() : Int = { _canvas.KEY_LEFT() }
+  
+  def KEY_RIGHT() : Int = { _canvas.KEY_RIGHT() }
   
 }
