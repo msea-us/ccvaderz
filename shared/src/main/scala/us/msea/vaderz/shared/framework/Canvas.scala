@@ -12,10 +12,6 @@ trait Canvas {
   
   def rect(a : Float, b : Float, c: Float, d: Float)
   
-  def KEY_LEFT() : Int
-  
-  def KEY_RIGHT() : Int
-  
   def textSize(size : Float)
   
   def text(txt : String, x : Float, y : Float)

@@ -60,8 +60,4 @@ trait ProcessingApiAdapter extends Canvas {
   
   def keyReleased(keyCode : Int) = {}
   
-  def KEY_LEFT() : Int = { _canvas.KEY_LEFT() }
-  
-  def KEY_RIGHT() : Int = { _canvas.KEY_RIGHT() }
-  
 }

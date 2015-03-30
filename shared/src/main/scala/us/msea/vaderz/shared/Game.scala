@@ -1,6 +1,6 @@
 package us.msea.vaderz.shared
 
-import us.msea.vaderz.shared.framework.ProcessingApiAdapter
+import us.msea.vaderz.shared.framework._
 
 class Game extends ProcessingApiAdapter {
   
@@ -23,11 +23,11 @@ class Game extends ProcessingApiAdapter {
   }
   
   override def keyPressed(keyCode : Int) = {
-    if(keyCode == KEY_LEFT) {
+    if(keyCode == KeyCodes.LEFT_ARROW) {
       message = "left"
       i -= 5
     }
-    if(keyCode == KEY_RIGHT) {
+    if(keyCode == KeyCodes.RIGHT_ARROW) {
       i += 5
       message = "right"
     }

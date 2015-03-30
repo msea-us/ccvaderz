@@ -67,10 +67,6 @@ class JSCanvas(handler : ProcessingApiAdapter) extends Canvas {
     ctx.fillText(txt, x, y)
   }
   
-  def KEY_LEFT = 37
-  
-  def KEY_RIGHT = 39
-
 }
 
 object Color{
