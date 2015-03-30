@@ -33,14 +33,11 @@ class JSCanvas(handler : ProcessingApiAdapter) extends Canvas {
       handler.keyReleased(e.keyCode.toInt)
     }
     
-    
   }
   
   def background(rgb : Int) = {
     ctx.fillStyle = Color.Black
     ctx.fillRect(0, 0, w, h)
-    
-    //text(debugMsg, 100, 500)
   }
   
   def frameRate(r:Float) = {
@@ -73,7 +70,6 @@ class JSCanvas(handler : ProcessingApiAdapter) extends Canvas {
   def KEY_LEFT = 37
   
   def KEY_RIGHT = 39
-  
 
 }
 

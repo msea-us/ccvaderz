@@ -18,3 +18,7 @@ Install ScalaIde (Eclipse) - http://scala-ide.org
 Install sbt build tool and install the Eclipse Plugin for sbt. - http://www.scala-sbt.org/download.html
 
 Run 'sbt eclipse' - this will create 2 eclipse projects. Open both projects in Eclipse.
+
+In JVM, you can run Main.scala as Scala Application from Eclipse, or 'sbt vaderzJVM/run'
+
+To run JS, run 'sbt ~fastOptJS' and then open 'file:///<path>/ccvaderz/js/target/scala-2.11/classes/index-fastopt.html in your web browser.
