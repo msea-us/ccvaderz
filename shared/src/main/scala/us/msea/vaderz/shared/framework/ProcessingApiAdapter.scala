@@ -1,20 +1,10 @@
 package us.msea.vaderz.shared.framework
 
-trait ProcessingApiAdapter extends Canvas {
+trait ProcessingApiAdapter {
   
   var _canvas : Canvas = null
   def setCanvas(canvas : Canvas) = {
     _canvas = canvas
-  }
-  
-  var _width : Int = 0
-  def setWidth(w:Int) = {
-    _width = w
-  }
-  
-  var _height : Int = 0
-  def setHeight(h:Int) = {
-    _height = h
   }
   
   var _rgb : Int = 0

@@ -4,40 +4,45 @@ import us.msea.vaderz.shared.framework._
 import org.scalajs.dom
 import org.scalajs.dom.html
 
-class JSCanvas(handler : ProcessingApiAdapter) extends Canvas {
+class JSCanvas(val _width : Int = 800, val _height : Int = 600) extends Canvas {
+  
+  var _eventHandler : ProcessingApiAdapter = null
   
   val canvas = dom.document.getElementById("canvas").asInstanceOf[html.Canvas]
   val ctx = canvas.getContext("2d").asInstanceOf[dom.CanvasRenderingContext2D]
-  
-  val w = 800
-  val h = 600
   
   var _frameRate = 0f
   
   var debugMsg = "debug"
   
-  def init() = {
-    debugMsg = "init"
-    handler.setWidth(w)
-    handler.setHeight(h)
-    handler.setCanvas(this)
-    handler.setup()
+  def init(eventHandler : ProcessingApiAdapter) = {
+    _eventHandler = eventHandler
+    _eventHandler.setCanvas(this)
+    
+    _eventHandler.setup()
+    
+    // frame rate must be set in the setup()
     assert( _frameRate > 0)
-    dom.setInterval(() => handler.draw, 1000 / _frameRate)
+    
+    //activate timer
+    dom.setInterval(() => _eventHandler.draw, 1000 / _frameRate)
     
     dom.onkeydown = {(e: dom.KeyboardEvent) => 
-      handler.keyPressed(e.keyCode.toInt)
+      _eventHandler.keyPressed(e.keyCode.toInt)
     }
       
     dom.onkeyup = {(e: dom.KeyboardEvent) =>
-      handler.keyReleased(e.keyCode.toInt)
+      _eventHandler.keyReleased(e.keyCode.toInt)
     }
+    
+    text("I can be moved by pressing and holding the arrow keys, even diagonally!",0,10);
     
   }
   
+  //TODO - fixme!!!
   def background(rgb : Int) = {
     ctx.fillStyle = Color.Black
-    ctx.fillRect(0, 0, w, h)
+    ctx.fillRect(0, 0, _width, _height)
   }
   
   def frameRate(r:Float) = {
@@ -48,6 +53,7 @@ class JSCanvas(handler : ProcessingApiAdapter) extends Canvas {
     throw new NotImplementedError
   }
   
+  //TODO fixme
   def stroke(rgb : Int) = {
      ctx.fillStyle = Color.White //rgb
   }

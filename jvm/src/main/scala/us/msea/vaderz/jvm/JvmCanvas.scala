@@ -4,47 +4,44 @@ import processing.core._
 import us.msea.vaderz.shared.framework._
 import java.awt.event.KeyEvent._
 
-class JvmCanvas(handler : ProcessingApiAdapter) extends PApplet with Canvas {
+class JvmCanvas(val _width : Int = 800, val _height : Int = 600 ) extends PApplet with Canvas {
   
-  //TODO get width and height from jvm runtime environment; -Dwidth=...
-  val w = 800
-  val h = 600
+  var _eventHandler : ProcessingApiAdapter = null
   
-  override def init() = {
+  override def init(eventHandler : ProcessingApiAdapter) = {
+    _eventHandler = eventHandler
     val jFrame = new javax.swing.JFrame()
     
-    jFrame.setSize(w,h)
+    jFrame.setSize(_width,_height)
     jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE)
     val panel  = new javax.swing.JPanel()
-    panel.setBounds(20, 20, w, h)
+    panel.setBounds(20, 20, _width, _height)
     panel.add(this)
     jFrame.add(panel)
     
     //start PApplet
-    handler.setCanvas(this)
+    _eventHandler.setCanvas(this)
     super.init()
     
     jFrame.setVisible(true)
-    this.size(w, h)
-    handler.setWidth(w)
-    handler.setHeight(h)
+    this.size(_width, _height)
   }
   
   override def setup() = {
-   handler.setup()
-   size(w, h)
+   _eventHandler.setup()
+   size(_width, _height)
   }
   
   override def draw() = {
-    handler.draw()
+    _eventHandler.draw()
   }
   
   override def keyPressed() = {
-    handler.keyPressed(keyCode)
+    _eventHandler.keyPressed(keyCode)
   }
   
   override def keyReleased() = {
-    handler.keyReleased(keyCode)
+    _eventHandler.keyReleased(keyCode)
   }
   
   def text(txt : String, x : Int, y : Int) = {}

@@ -2,9 +2,13 @@ package us.msea.vaderz.shared
 
 import us.msea.vaderz.shared.framework._
 
-class Game extends ProcessingApiAdapter {
+class Game(canvas : Canvas) extends ProcessingApiAdapter {
   
   var message  = ""
+  
+  def init() = {
+    canvas.init(this)
+  }
   
   override def setup() = {
     frameRate(10)

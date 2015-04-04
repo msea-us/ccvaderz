@@ -7,8 +7,8 @@ import us.msea.vaderz.shared._
 
 object Main extends js.JSApp {
   def main(): Unit = {
-    val game = new Game()
-    new JSCanvas(game).init()
+    val game = new Game(new JSCanvas())
+    game.init()
   }
   
 }
