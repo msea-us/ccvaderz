@@ -1,4 +1,4 @@
-Copyright Math and Software Engineering Academy and David Vydra
+Copyright David Vydra
 
 Cross-compiled Space Invaders in Scala for JVM, JS. Looking into Android as well.
 
